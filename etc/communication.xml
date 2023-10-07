@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+    <topic name="greenrivers.pimcore.product" request="string">
+        <handler name="greenrivers.pimcore.products" type="Greenrivers\PimcoreIntegration\Model\Queue\Product\Consumer"
+                 method="process"/>
+    </topic>
+    <topic name="greenrivers.pimcore.category" request="string">
+        <handler name="greenrivers.pimcore.category" type="Greenrivers\PimcoreIntegration\Model\Queue\Category\Consumer"
+                 method="process"/>
+    </topic>
+</config>

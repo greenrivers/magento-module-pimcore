@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <consumer name="greenrivers.pimcore.product" queue="greenrivers.pimcore.product"
+              handler="Greenrivers\PimcoreIntegration\Model\Queue\Product\Consumer::process"/>
+    <consumer name="greenrivers.pimcore.category" queue="greenrivers.pimcore.category"
+              handler="Greenrivers\PimcoreIntegration\Model\Queue\Category\Consumer::process"/>
+</config>

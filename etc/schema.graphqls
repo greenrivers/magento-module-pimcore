@@ -1,0 +1,48 @@
+type Mutation {
+    createProduct(input: ProductInput!): ProductOutput
+    @resolver(class: "\\Greenrivers\\PimcoreIntegration\\Model\\Resolver\\Product")
+    @cache(cacheIdentity: "Greenrivers\\PimcoreIntegration\\Model\\Resolver\\Product\\Identity")
+    @doc(description: "Create a new product.")
+    createCategory(input: CategoryInput!): CategoryOutput
+    @resolver(class: "\\Greenrivers\\PimcoreIntegration\\Model\\Resolver\\Category")
+    @cache(cacheIdentity: "Greenrivers\\PimcoreIntegration\\Model\\Resolver\\Category\\Identity")
+    @doc(description: "Create a new category.")
+}
+
+input ProductInput {
+    status: Boolean
+    attribute_set_id: Int
+    name: String
+    sku: String
+    price: Float
+}
+
+input CategoryInput {
+    is_active: Boolean
+    include_in_menu: Boolean
+    name: String
+    parent_id: Int
+}
+
+type ProductOutput {
+    product: Product! @doc(description: "Product data.")
+}
+
+type CategoryOutput {
+    category: Category! @doc(description: "Category data.")
+}
+
+type Product {
+    status: Boolean
+    attribute_set_id: Int
+    name: String
+    sku: String
+    price: Float
+}
+
+type Category {
+    is_active: Boolean
+    include_in_menu: Boolean
+    name: String
+    parent_id: Int
+}

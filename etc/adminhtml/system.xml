@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="greenrivers" translate="label" sortOrder="120">
+            <label>Greenrivers</label>
+        </tab>
+        <section id="greenrivers_pimcoreintegration" translate="label"
+                 sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Pimcore Integration</label>
+            <tab>greenrivers</tab>
+            <resource>Greenrivers_PimcoreIntegration::config</resource>
+            <group id="general" translate="label" type="text"
+                   sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select"
+                       sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Integration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="pimcore_url" translate="label" type="text"
+                       sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pimcore Url</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="pimcore_api_key" translate="label" type="password"
+                       sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pimcore Api Key</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="magento" translate="label" type="text"
+                   sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Magento</label>
+                <field id="override_product" translate="label" type="select"
+                       sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Override Product</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="override_category" translate="label" type="select"
+                       sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Override Category</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <depends>
+                    <field id="greenrivers_pimcoreintegration/general/enabled">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>
